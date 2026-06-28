@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# hostapd-wpa3
+
+hostapd=bin/hostapd
+config=hostapd_wpa3.conf
+
+if [[ $EUID -ne 0 ]]; then
+	echo "Run as root!"
+	exit 1
+fi
+
+if [[ $# -ne 4 ]]; then
+	echo "Usage: sudo ./$0 <interface> <ssid> <channel> <password>"
+	exit 1
+fi
+
+interface=$1
+ssid=$2
+channel=$3
+password=$4
+
+cat << EOF > "${config}"
+interface=${interface}
+driver=nl80211
+ssid=${ssid}
+hw_mode=g
+channel=${channel}
+wpa=2
+sae_password=${password}
+wpa_key_mgmt=SAE
+rsn_pairwise=CCMP
+ieee80211w=2
+EOF
+
+eval "${hostapd}" -B "${config}"
