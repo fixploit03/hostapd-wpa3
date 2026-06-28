@@ -28,3 +28,9 @@ ieee80211w=2
 ```bash
 sudo ./hostapd hostapd_wpa3.conf
 ```
+
+Atau jalankan menggunakan script:
+
+```bash
+Usage: sudo ./hostapd-wpa3 <interface> <ssid> <channel> <password>
+```
