@@ -1,14 +1,14 @@
 # hostapd-wpa3
 
-Binary [hostapd](https://w1.fi/hostapd/) statik dengan dukungan WPA3 yang dapat dijalankan di semua distro Linux tanpa perlu menginstal dependensi tambahan.
+A static [hostapd](https://w1.fi/hostapd/) binary with WPA3 support that can be run on any Linux distribution without the need to install additional dependencies.
 
-## Konfigurasi AP
+## AP Configuration
 
 ```bash
 nano hostapd_wpa3.conf
 ```
 
-Isi dengan:
+Add the following content:
 
 ```bash
 interface=wlan0
@@ -23,13 +23,13 @@ rsn_pairwise=CCMP
 ieee80211w=2
 ```
 
-## Jalankan AP
+## Run the AP
 
 ```bash
 sudo ./hostapd hostapd_wpa3.conf
 ```
 
-Atau jalankan menggunakan script:
+Or run it using the script:
 
 ```bash
 Usage: sudo ./hostapd-wpa3 <interface> <ssid> <channel> <password>
