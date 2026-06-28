@@ -26,5 +26,5 @@ ieee80211w=2
 ## Jalankan AP
 
 ```bash
-sudo hostapd hostapd_wpa3.conf
+sudo ./hostapd hostapd_wpa3.conf
 ```
