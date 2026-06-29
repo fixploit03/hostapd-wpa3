@@ -11,7 +11,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 if [[ $# -ne 4 ]]; then
-	echo "Usage: sudo ./$0 <interface> <ssid> <channel> <password>"
+	echo "Usage: sudo $0 <interface> <ssid> <channel> <password>"
 	exit 1
 fi
 
